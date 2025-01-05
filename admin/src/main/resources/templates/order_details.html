@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-template="vertical-menu-template-free" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment :: header"></head>
+<body>
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu latéral -->
+        <div th:replace="fragment :: aside"></div>
+        <div class="layout-page">
+            <!-- Barre de navigation -->
+            <div th:replace="fragment :: navbar"></div>
+            <div class="content-wrapper">
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <h4 class="fw-bold py-3 mb-4">
+                        <span class="text-muted fw-light">Orders /</span> Order Details
+                    </h4>
+                    <div class="card">
+                        <h5 class="card-header"><i>Order Details</i></h5>
+                        <div class="card-body">
+                            <!-- Affichage des détails de la commande -->
+                            <p>Order ID: <span th:text="${order.id}"></span></p>
+                            <p>Customer: <span th:text="${order.user.firstname} + ' ' + ${order.user.lastname}"></span></p>
+                            <p>Order Date: <span th:text="${order.orderDate}"></span></p>
+                            <p>Status: <span th:text="${order.orderStatus}"></span></p>
+
+                            <!-- Détails de la commande -->
+                            <h6>Order Details</h6>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Total Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!-- Boucle à travers les détails de la commande -->
+                                <tr th:each="detail : ${order.orderDetailList}">
+                                    <td th:text="${detail.product.name}"></td>
+                                    <td th:text="${detail.quantity}"></td>
+                                    <td th:text="${detail.unitPrice}"></td>
+                                    <td th:text="${detail.totalPrice}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fichiers JS et autres scripts -->
+<div th:replace="fragment :: script"></div>
+</body>
+</html>

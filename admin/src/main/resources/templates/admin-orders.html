@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-template="vertical-menu-template-free" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment :: header"></head>
+<body>
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu latéral -->
+        <div th:replace="fragment :: aside"></div>
+        <div class="layout-page">
+            <!-- Barre de navigation -->
+            <div th:replace="fragment :: navbar"></div>
+            <div class="content-wrapper">
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <h4 class="fw-bold py-3 mb-4">
+                        <span class="text-muted fw-light">Orders /</span> Manage Orders
+                    </h4>
+                    <div class="card">
+                        <h5 class="card-header"><i>All Orders</i></h5>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>#Order ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Order Date</th>
+                                    <th>Total Price</th>
+                                    <th>Status</th>
+                                    <th>Details</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="order : ${orders}">
+                                    <td th:text="${order.id}"></td>
+                                    <td th:text="${order.user.firstname + ' ' + order.user.lastname}"></td>
+                                    <td th:text="${order.orderDate}"></td>
+                                    <td th:text="${order.totalPrice + ' TND'}"></td>
+                                    <td th:text="${order.orderStatus}"></td>
+                                    <td>
+                                        <!-- Lien vers les détails de la commande -->
+                                        <a th:href="@{/orders/{id}(id=${order.id})}">View Details</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fichiers JS et autres scripts -->
+<div th:replace="fragment :: script"></div>
+</body>
+</html>
