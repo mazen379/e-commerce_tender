@@ -1,0 +1,21 @@
+
+V	java:S125"<This block of commented-out lines of code should be removed.(¨Ó±üÿÿÿÿ
+`
+java:S1128"ERemove this unused import 'com.ecommerce.library.model.OrderDetails'.(°Ôùˆÿÿÿÿÿ
+V
+java:S1128"ARemove this unused import 'com.ecommerce.library.model.Category'.(®¯êy
+e
+java:S1128"JRemove this unused import 'com.ecommerce.library.service.CategoryService'.(øÜÑÏøÿÿÿÿ
+i
+java:S1128	"TRemove this unused import 'org.springframework.dao.DataIntegrityViolationException'.(ÅÔº(
+[
+java:S1128
+"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ
+_
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ
+q
+java:S1128"[Remove this unused import 'org.springframework.web.servlet.mvc.support.RedirectAttributes'.(ìçÚË
+I
+java:S1128"4Remove this unused import 'java.security.Principal'.(’ÛŞ[
+F
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
