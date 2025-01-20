@@ -15,4 +15,5 @@ COPY target/*.jar /app/user.jar
 EXPOSE 8019
 
 # Commande pour exécuter l'application
-ENTRYPOINT ["java", "-jar", "user.jar"]
+ENTRYPOINT ["sh", "-c", "sleep 30 && java -jar user.jar"]
+

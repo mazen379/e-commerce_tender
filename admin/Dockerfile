@@ -15,4 +15,5 @@ COPY target/*.jar /app/admin.jar
 EXPOSE 8080
 
 # Commande pour exécuter l'application
-ENTRYPOINT ["java", "-jar", "admin.jar"]
+ENTRYPOINT ["sh", "-c", "sleep 30 && java -jar admin.jar"]
+
