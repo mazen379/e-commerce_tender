@@ -22,8 +22,8 @@ public class OrderDetails {
 	
 	private int quantity;
 	private double totalPrice,unitPrice;
-	@ManyToOne
-	@JoinColumn(name = "order_id")
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "id_order")
 	  private Order order;
 	 @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	    @JoinColumn(name = "id_product", referencedColumnName = "id_product")

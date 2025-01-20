@@ -13,4 +13,5 @@ public interface OrderService {
 	Order getOrderById(Long orderId);
 	OrderDetails getOrderDetailsById(Long id);
 	Order getOrderWithDetails(Long orderId);
+	boolean confirmOrder(Long orderId);
 }

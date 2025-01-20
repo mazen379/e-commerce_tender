@@ -94,5 +94,18 @@ public class OrderServiceImpl implements OrderService{
 		}
 		return null; // ou lever une exception comme EntityNotFoundException
 	}
+	@Override
+	public boolean confirmOrder(Long orderId) {
+		Optional<Order> optionalOrder = orderRepository.findById(orderId);
+		if (optionalOrder.isPresent()) {
+			Order order = optionalOrder.get();
+			if ("PINDING".equalsIgnoreCase(order.getOrderStatus())) {
+				order.setOrderStatus("CONFIRMED");
+				orderRepository.save(order);
+				return true;
+			}
+		}
+		return false;
+	}
 
 }

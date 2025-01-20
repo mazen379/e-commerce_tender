@@ -1,26 +1,18 @@
-# Utiliser l'image openjdk avec une version de Java appropriée
-FROM openjdk:17-slim
+# Étape 1 : Utilisation d'une image Maven pour construire le projet
+FROM maven:3.8.4-openjdk-17 AS build
 
-# Installer Maven manuellement
-RUN apt-get update && apt-get install -y maven
+# Étape 2 : Image pour exécuter l'application Spring Boot
+FROM openjdk:17-jdk
 
-# Définir le répertoire de travail
+
+
+# Répertoire de travail dans le conteneur
 WORKDIR /app
 
-# Copier les fichiers pom.xml (et tout autre fichier nécessaire)
-COPY pom.xml .
+COPY target/*.jar /app/admin.jar
 
-# Télécharger les dépendances Maven (sans exécuter les tests)
-RUN mvn dependency:go-offline
-
-# Copier tous les autres fichiers sources dans le conteneur
-COPY src /app/src
-
-# Construire le projet Maven (sans tests)
-RUN mvn clean install -DskipTests
-
-# Exposer le port de l'application (si nécessaire, par exemple pour Spring Boot)
+# Exposer le port sur lequel l'application Spring Boot écoute
 EXPOSE 8080
 
-# Commande pour démarrer l'application
-CMD ["mvn", "spring-boot:run"]
+# Commande pour exécuter l'application
+ENTRYPOINT ["java", "-jar", "admin.jar"]

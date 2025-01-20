@@ -38,17 +38,32 @@ public class OrderController {
 		model.addAttribute("orders", orders);
 		return "admin-orders";
 	}
+
 	@GetMapping("/orders/{id}")
-
-	public String getOrderById(@PathVariable Long id, Model model)  {
+	public String getOrderDetails(@PathVariable Long id, Model model) {
+		// Vérifier si la commande existe
 		Order order = orderService.getOrderById(id);
-
-			// Ajout de l'objet Order au modèle pour l'afficher dans la vue
-			model.addAttribute("order", order);
-			// Retour de la vue HTML (par exemple 'admin-orders.html' si vous utilisez Thymeleaf)
-			return "order_details";
-
+		if (order == null) {
+			return "error";  // Retourner une page d'erreur si la commande n'est pas trouvée
 		}
+
+		// Ajouter l'objet 'order' au modèle
+		model.addAttribute("order", order);
+
+		// Retourner le template Thymeleaf
+		return "order_details";  // Le nom du fichier HTML
+	}
+	@PostMapping("/orders/confirm/{orderId}")
+	public String confirmOrder(@PathVariable Long orderId, RedirectAttributes redirectAttributes, Model model) {
+//		boolean isConfirmed = orderService.confirmOrder(orderId);
+//		if (isConfirmed) {
+//			redirectAttributes.addFlashAttribute("successMessage", "Order confirmed successfully.");
+//		} else {
+//			redirectAttributes.addFlashAttribute("errorMessage", "Failed to confirm the order. Order not found or already confirmed.");
+//		}
+//		model.addAttribute("isConfirmed", isConfirmed);
+		return "redirect:/orders/" + orderId;
+	}
 
     }
 
