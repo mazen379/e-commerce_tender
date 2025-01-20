@@ -1,0 +1,10 @@
+com\ecommerce\admin\config\AdminDetails.class
+com\ecommerce\admin\controller\AdminController.class
+com\ecommerce\admin\config\AdminServiceConfig.class
+com\ecommerce\admin\AdminApplication.class
+com\ecommerce\admin\controller\loginController.class
+com\ecommerce\admin\controller\MarqueController.class
+com\ecommerce\admin\controller\CategoryController.class
+com\ecommerce\admin\config\AdminConfiguration.class
+com\ecommerce\admin\controller\OrderController.class
+com\ecommerce\admin\controller\ProductController.class

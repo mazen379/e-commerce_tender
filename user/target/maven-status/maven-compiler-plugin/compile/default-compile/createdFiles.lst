@@ -1,0 +1,8 @@
+com\ecommerce\user\controller\HomeController.class
+com\ecommerce\user\controller\CartController.class
+com\ecommerce\user\UserApplication.class
+com\ecommerce\user\config\CustomUserDetails.class
+com\ecommerce\user\controller\AuthenController.class
+com\ecommerce\user\config\UserConfigService.class
+com\ecommerce\user\config\UserConfiguration.class
+com\ecommerce\user\controller\OrderController.class
